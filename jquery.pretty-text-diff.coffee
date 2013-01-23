@@ -24,9 +24,28 @@ $.fn.extend
         dmp.diff_cleanupSemantic(diffs) if settings.cleanup
         $.fn.prettyTextDiff.debug "Diffs: ", diffs, settings
 
-        $(settings.diffContainer, this).html("arnab");
+        diff_as_html = diffs.map (diff) ->
+          $.fn.prettyTextDiff.createHTML(diff)
+        $(settings.diffContainer, this).html(diff_as_html.join(''));
 
         @
 
 $.fn.prettyTextDiff.debug = (message, object, settings) ->
   console.log(message, object) if settings.debug
+
+$.fn.prettyTextDiff.createHTML = (diff) ->
+    html = [];
+    pattern_amp = /&/g
+    pattern_lt = /</g
+    pattern_gt = />/g
+    pattern_para = /\n/g
+
+    [operation, data] = diff
+    text = data.replace(pattern_amp, '&amp;') \
+               .replace(pattern_lt, '&lt;') \
+               .replace(pattern_gt, '&gt;') \
+               .replace(pattern_para, '<br>')
+    switch operation
+      when DIFF_INSERT then '<ins>' + text + '</ins>'
+      when DIFF_DELETE then '<del>' + text + '</del>'
+      when DIFF_EQUAL  then '<span>' + text + '</span>'
