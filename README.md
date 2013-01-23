@@ -15,3 +15,8 @@ A wrapper around Google's
     [`uglify`](https://github.com/mishoo/UglifyJS2):
     `npm install -g coffee-script uglify-js`
 + `cake build` to produce the output JS (minified)
+
+## License
+Copyright (c) 2013 Arnab Deka. Licensed under
+[MIT LICENSE](https://github.com/arnab/jQuery.PrettyTextDiff/blob/master/LICENSE)
+for details.
