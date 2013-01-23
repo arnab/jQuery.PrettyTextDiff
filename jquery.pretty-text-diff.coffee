@@ -1,3 +1,8 @@
+###
+@preserve jQuery.PrettyTextDiff 1.0.0
+See https://github.com/arnab/jQuery.PrettyTextDiff/
+###
+
 $ = jQuery
 
 $.fn.extend
