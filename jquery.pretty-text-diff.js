@@ -6,22 +6,38 @@
 
   $.fn.extend({
     prettyTextDiff: function(options) {
-      var log, settings;
+      var dmp, settings;
       settings = {
-        option1: true,
-        option2: false,
+        originalContainer: ".original",
+        changedContainer: ".requested",
+        diffContainer: ".diff",
+        cleanup: true,
         debug: false
       };
       settings = $.extend(settings, options);
-      log = function(msg) {
-        if (settings.debug) {
-          return typeof console !== "undefined" && console !== null ? console.log(msg) : void 0;
-        }
-      };
+      $.fn.prettyTextDiff.debug("Options: ", settings, settings);
+      dmp = new diff_match_patch();
       return this.each(function() {
-        return log("Option 1 value: " + settings.option1);
+        var changed, diffs, original;
+        original = $(settings.originalContainer, this).text();
+        $.fn.prettyTextDiff.debug("Original text found: ", original, settings);
+        changed = $(settings.changedContainer, this).text();
+        $.fn.prettyTextDiff.debug("Changed  text found: ", changed, settings);
+        diffs = dmp.diff_main(original, changed);
+        if (settings.cleanup) {
+          dmp.diff_cleanupSemantic(diffs);
+        }
+        $.fn.prettyTextDiff.debug("Diffs: ", diffs, settings);
+        $(settings.diffContainer, this).html("arnab");
+        return this;
       });
     }
   });
+
+  $.fn.prettyTextDiff.debug = function(message, object, settings) {
+    if (settings.debug) {
+      return console.log(message, object);
+    }
+  };
 
 }).call(this);
