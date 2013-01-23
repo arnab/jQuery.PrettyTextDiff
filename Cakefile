@@ -13,5 +13,6 @@ task 'minify', 'Minify js into min.js', ->
     console.log stdout + stderr
 
 task 'build', 'compile and minify', ->
-  invoke 'compile'
-  invoke 'minify'
+  exec "cake compile && cake minify", (err, stdout, stderr) ->
+    throw err if err
+    console.log stdout + stderr
