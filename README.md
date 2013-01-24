@@ -20,6 +20,9 @@ This library is an alternative to embedding
  in your code. In short, it tries to bridge the gap between the
  awesome `diff_match_patch` library and a simple user-experience.
 
+## Demo
+[jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
+
 ## Usage
 #### First, include the libraries
 + include `jquery.js`, `diff_match_patch.js` and
@@ -46,7 +49,7 @@ Check out the [customizable options](#customizable-options) below.
 in the [jsfiddle demo](#demo).
 
 #### Customizable options
-+ Either mark up your HTML to use the default selectors, or use these options below:
++ Either mark up your HTML to use the default selectors, or use these options:
 
 <table>
   <tr>
@@ -85,10 +88,6 @@ in the [jsfiddle demo](#demo).
     <td>see some debug output in your browser's console</td>
   </tr>
 </table>
-
-
-## Demo
-[jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
 
 ## Development
 + Install [`node`](http://nodejs.org/) and `npm` (comes with node now)
