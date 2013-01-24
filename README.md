@@ -8,21 +8,23 @@ multiple ways, but their API is a bit awkward, probably cause they
 support the same API in 8 different languages.
 
 Also, the library does not provide any beautification of the diff-ed
-output. They provide a refernce implementation (look for
+output. They provide a reference implementation (look for
 `diff_prettyHtml` in the
 [API docs](http://code.google.com/p/google-diff-match-patch/wiki/API)
 ) but recommend developers to write their own - and the given method is
 [not customizable](http://stackoverflow.com/questions/13894514/google-diff-match-avoid-showing-new-lines)
 .
 
-This library is an alternative to embedding 30+ lines of cryptic JS in
-your code, in short, it tries to bridge the gap between the awesome
-`diff_match_patch` library and a simple user-experience.
+This library is an alternative to embedding
+ [30+ lines of cryptic JS](http://stackoverflow.com/a/13894720/117750)
+ in your code. In short, it tries to bridge the gap between the
+ awesome `diff_match_patch` library and a simple user-experience.
 
 ## Usage
 #### First, include the libraries
 + include `jquery.js`, `diff_match_patch.js` and
 `jquery.pretty-text-diff.js` in your page, something like:
+
 ```html
 <script src="/path/to/jquery.min.js" type="text/javascript"></script>
 <script src="/path/to/diff_match_patch.js" type="text/javascript"></script>
@@ -31,19 +33,19 @@ your code, in short, it tries to bridge the gap between the awesome
 
 #### Next sprinkle a bit of JS
 + something like:
+
 ```js
   $(selector).prettyTextDiff({
     // options
   });
 ```
-Check out the customizable options below
+Check out the [customizable options](#customizable-options) below.
 
 #### Optionally, style the diff
 + Style `<ins>` and `<del>` as much as you want. A simple example is
-in the jsfiddle demo below.
+in the [jsfiddle demo](#demo).
 
 #### Customizable options
-Look at the demo (liked below) for an example.
 
 ## Demo
 [jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
