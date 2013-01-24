@@ -10,7 +10,7 @@ $.fn.extend
       # Defaults
       settings =
         originalContainer: ".original",
-        changedContainer:  ".requested",
+        changedContainer:  ".changed",
         diffContainer: ".diff",
         cleanup: true
         debug: false
