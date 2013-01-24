@@ -2,12 +2,51 @@ jQuery.PrettyTextDiff
 =====================
 
 A wrapper around Google's
- [`diff_match_patch`](http://code.google.com/p/google-diff-match-patch/)
- library, to make life a little easier.
+[`diff_match_patch`](http://code.google.com/p/google-diff-match-patch/)
+library. Google's libabry is awesome and can be fine-tuned in
+multiple ways, but their API is a bit awkward, probably cause they
+support the same API in 8 different languages.
+
+Also, the library does not provide any beautification of the diff-ed
+output. They provide a refernce implementation (look for
+`diff_prettyHtml` in the
+[API docs](http://code.google.com/p/google-diff-match-patch/wiki/API)
+) but recommend developers to write their own - and the given method is
+[not customizable](http://stackoverflow.com/questions/13894514/google-diff-match-avoid-showing-new-lines)
+.
+
+This library is an alternative to embedding 30+ lines of cryptic JS in
+your code, in short, it tries to bridge the gap between the awesome
+`diff_match_patch` library and a simple user-experience.
 
 ## Usage
+#### First, include the libraries
++ include `jquery.js`, `diff_match_patch.js` and
+`jquery.pretty-text-diff.js` in your page, something like:
+```html
+<script src="/path/to/jquery.min.js" type="text/javascript"></script>
+<script src="/path/to/diff_match_patch.js" type="text/javascript"></script>
+<script src="/path/to/deal_override_requests.min.js" type="text/javascript"></script>
+```
+
+#### Next sprinkle a bit of JS
++ something like:
+```js
+  $(selector).prettyTextDiff({
+    // options
+  });
+```
+Check out the customizable options below
+
+#### Optionally, style the diff
++ Style `<ins>` and `<del>` as much as you want. A simple example is
+in the jsfiddle demo below.
+
+#### Customizable options
+Look at the demo (liked below) for an example.
 
 ## Demo
+[jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
 
 ## Development
 + Install [`node`](http://nodejs.org/) and `npm` (comes with node now)
