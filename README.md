@@ -23,6 +23,9 @@ This library is an alternative to embedding
 ## Demo
 [jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
 
+## Download
+From the [jQuery plugins site](http://plugins.jquery.com/pretty-text-diff/).
+
 ## Usage
 #### First, include the libraries
 + include `jquery.js`, `diff_match_patch.js` and
@@ -57,7 +60,7 @@ in the [jsfiddle demo](#demo).
     <th>default</th>
     <th>explanation</th>
   </tr>
- 
+
   <tr>
     <td>originalContainer</td>
     <td>.original</td>
@@ -95,6 +98,11 @@ in the [jsfiddle demo](#demo).
     [`uglify`](https://github.com/mishoo/UglifyJS2):
     `npm install -g coffee-script uglify-js`
 + `cake build` to produce the output JS (minified)
++ Increment the version in the
+coffeescript (and compiled/minified) javascript source and the
+jquery-json file.
++ `git tag x.y.z`
++ Push!
 
 ## License
 Copyright (c) 2013 Arnab Deka. Licensed under
