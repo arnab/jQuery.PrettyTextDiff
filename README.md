@@ -46,6 +46,46 @@ Check out the [customizable options](#customizable-options) below.
 in the [jsfiddle demo](#demo).
 
 #### Customizable options
++ Either mark up your HTML to use the default selectors, or use these options below:
+
+<table>
+  <tr>
+    <th>option</th>
+    <th>default</th>
+    <th>explanation</th>
+  </tr>
+ 
+  <tr>
+    <td>originalContainer</td>
+    <td>.original</td>
+    <td>CSS-selector for the element that holds the original text. $(elem).text() will be used to extract the text.</td>
+  </tr>
+
+  <tr>
+    <td>changedContainer</td>
+    <td>.changed</td>
+    <td>CSS-selector for the element that holds the changed text. $(elem).text() will be used to extract the text.</td>
+  </tr>
+
+  <tr>
+    <td>diffContainer</td>
+    <td>.diff</td>
+    <td>CSS-selector for the element where the diff will be put.</td>
+  </tr>
+
+  <tr>
+    <td>cleanup</td>
+    <td>true</td>
+    <td>Whether diff_match_patch's diff_cleanupSemantic() will be used or not. true will produce a human-redable diff, whereas false will be more to the liking of machines. See the demo for the effect.</td>
+  </tr>
+
+  <tr>
+    <td>debug</td>
+    <td>false</td>
+    <td>see some debug output in your browser's console</td>
+  </tr>
+</table>
+
 
 ## Demo
 [jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
