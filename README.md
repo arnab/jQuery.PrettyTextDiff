@@ -20,6 +20,9 @@ This library is an alternative to embedding
  in your code. In short, it tries to bridge the gap between the
  awesome `diff_match_patch` library and a simple user-experience.
 
+This [blog post](http://arnab-deka.com/posts/2013/02/hello-jquery-prettytextdiff/)
+explains things in a bit more detail.
+
 ## Demo
 [jsfiddle demo](http://jsfiddle.net/arnab/YwSVY/)
 
