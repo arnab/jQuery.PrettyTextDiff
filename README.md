@@ -3,7 +3,7 @@ jQuery.PrettyTextDiff
 
 A wrapper around Google's
 [`diff_match_patch`](http://code.google.com/p/google-diff-match-patch/)
-library. Google's libabry is awesome and can be fine-tuned in
+library. Google's library is awesome and can be fine-tuned in
 multiple ways, but their API is a bit awkward, probably cause they
 support the same API in 8 different languages.
 
