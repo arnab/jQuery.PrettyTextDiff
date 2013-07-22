@@ -112,7 +112,7 @@ jquery-json file.
 + create a feature/bugfix branch: `git checkout -b branch_name`
 + [Develop](#development)
 + Push to your repo: `git push origin branch_name`
-+ [Submit a PR](https://github.com/arnab/jQuery.PrettyTextDiff/pull/new)
++ [Submit a PR](https://github.com/arnab/jQuery.PrettyTextDiff/pulls/)
 
 ## License
 Copyright (c) 2013 Arnab Deka. Licensed under
