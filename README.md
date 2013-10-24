@@ -24,7 +24,7 @@ This [blog post](http://arnab-deka.com/posts/2013/02/hello-jquery-prettytextdiff
 explains things in a bit more detail.
 
 ## Demo
-[jsfiddle demo](http://jsfiddle.net/YwSVY/87/)
+[jsfiddle demo](http://jsfiddle.net/YwSVY/)
 
 ## Download
 From the [jQuery plugins site](http://plugins.jquery.com/pretty-text-diff/).
