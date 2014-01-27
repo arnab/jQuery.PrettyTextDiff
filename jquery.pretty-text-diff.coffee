@@ -1,5 +1,5 @@
 ###
-@preserve jQuery.PrettyTextDiff 1.0.2
+@preserve jQuery.PrettyTextDiff 1.0.3
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 ###
 
@@ -29,8 +29,8 @@ $.fn.extend
         dmp.diff_cleanupSemantic(diffs) if settings.cleanup
         $.fn.prettyTextDiff.debug "Diffs: ", diffs, settings
 
-        diff_as_html = diffs.map (diff) ->
-          $.fn.prettyTextDiff.createHTML(diff)
+        diff_as_html = $.map(diffs, (diff) ->
+          $.fn.prettyTextDiff.createHTML(diff))
         $(settings.diffContainer, this).html(diff_as_html.join(''));
 
         @
