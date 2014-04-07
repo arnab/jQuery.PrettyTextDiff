@@ -1,6 +1,6 @@
 {
   "name": "pretty-text-diff",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "title": "jQuery.PrettyTextDiff",
   "description": "A jQuery plugin to show diff between text. Uses Google's diff_match_patch library underneath.",
   "keywords": [
