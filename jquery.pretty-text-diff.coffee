@@ -1,5 +1,5 @@
 ###
-@preserve jQuery.PrettyTextDiff 1.0.3
+@preserve jQuery.PrettyTextDiff 1.0.4
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 ###
 
@@ -19,9 +19,14 @@ $.fn.extend
 
       dmp = new diff_match_patch();
       @each ->
-        original = $(settings.originalContainer, this).text()
+        if settings.originalContent and settings.changedContent
+          original = $('<div />').html(settings.originalContent).text()
+          changed = $('<div />').html(settings.changedContent).text()
+        else
+          original = $(settings.originalContainer, this).text()
+          changed = $(settings.changedContainer, this).text()
+
         $.fn.prettyTextDiff.debug "Original text found: ", original, settings
-        changed = $(settings.changedContainer, this).text()
         $.fn.prettyTextDiff.debug "Changed  text found: ", changed, settings
 
         diffs = dmp.diff_main(original, changed)
