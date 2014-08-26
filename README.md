@@ -105,12 +105,13 @@ in the [jsfiddle demo](#demo).
 coffeescript (and compiled/minified) javascript source and the
 jquery-json file.
 + `git tag x.y.z`
-+ Push!
++ Push: `git push && git push --tags`
 
 ## Contributing
 + Fork this repo
 + create a feature/bugfix branch: `git checkout -b branch_name`
 + [Develop](#development)
+  + Just change the coffeescript source. When your PR is merged, I will generate the JS flavors and update the versioning.
 + Push to your repo: `git push origin branch_name`
 + [Submit a PR](https://github.com/arnab/jQuery.PrettyTextDiff/pulls/)
 
