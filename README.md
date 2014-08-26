@@ -24,7 +24,7 @@ This [blog post](http://arnab-deka.com/posts/2013/02/hello-jquery-prettytextdiff
 explains things in a bit more detail.
 
 ## Demo
-[jsfiddle demo](http://jsfiddle.net/YwSVY/)
+[jsfiddle demo](http://jsfiddle.net/q7hyfev8/5/)
 
 ## Download
 From the [jQuery plugins site](http://plugins.jquery.com/pretty-text-diff/).
@@ -92,6 +92,18 @@ in the [jsfiddle demo](#demo).
     <td>debug</td>
     <td>false</td>
     <td>see some debug output in your browser's console</td>
+  </tr>
+
+  <tr>
+    <td>originalContent</td>
+    <td>None</td>
+    <td>Pass the original content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
+  </tr>
+
+  <tr>
+    <td>changedContent</td>
+    <td>None</td>
+    <td>Pass the changed content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
   </tr>
 </table>
 
