@@ -95,13 +95,13 @@ in the [jsfiddle demo](#demo).
   </tr>
 
   <tr>
-    <td>originalContent<sup>(since v1.0.4)</sup></td>
+    <td>originalContent<sup>v1.0.4+</sup></td>
     <td>None</td>
     <td>Pass the original content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
   </tr>
 
   <tr>
-    <td>changedContent<sup>(since v1.0.4)</sup></td>
+    <td>changedContent<sup>v1.0.4+</sup></td>
     <td>None</td>
     <td>Pass the changed content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
   </tr>
