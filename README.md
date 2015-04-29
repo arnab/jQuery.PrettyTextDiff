@@ -27,7 +27,7 @@ explains things in a bit more detail.
 [jsfiddle demo](http://jsfiddle.net/q7hyfev8/5/)
 
 ## Download
-From the [jQuery plugins site](http://plugins.jquery.com/pretty-text-diff/).
+From [npm.js](https://www.npmjs.com/package/jquery-prettytextdiff/).
 
 ## Usage
 #### First, include the libraries
@@ -95,13 +95,13 @@ in the [jsfiddle demo](#demo).
   </tr>
 
   <tr>
-    <td>originalContent</td>
+    <td>originalContent<sup>(since v1.0.4)</sup></td>
     <td>None</td>
     <td>Pass the original content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
   </tr>
 
   <tr>
-    <td>changedContent</td>
+    <td>changedContent<sup>(since v1.0.4)</sup></td>
     <td>None</td>
     <td>Pass the changed content as a parameter in your JS file, instead of creating an element in your HTML code to extract this content.</td>
   </tr>
@@ -115,9 +115,9 @@ in the [jsfiddle demo](#demo).
 + `cake build` to produce the output JS (minified)
 + Increment the version in the
 coffeescript (and compiled/minified) javascript source and the
-jquery-json file.
+`package.json` file.
 + `git tag x.y.z`
-+ Push: `git push && git push --tags`
++ Push: `git push && git push --tags && npm publish`
 
 ## Contributing
 + Fork this repo
