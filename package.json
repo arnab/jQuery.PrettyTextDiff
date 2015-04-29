@@ -1,0 +1,27 @@
+{
+  "name": "jquery-prettytextdiff",
+  "version": "1.0.4",
+  "description": "A jQuery plugin to diff text painlessly. Uses Google's diff_match_patch library underneath.",
+  "main": "jquery.pretty-text-diff.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnab/jQuery.PrettyTextDiff.git"
+  },
+  "keywords": [
+    "jquery-plugins",
+    "ecosystem:jquery",
+    "text",
+    "diff",
+    "compare",
+    "visualize"
+  ],
+  "author": "Arnab Deka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnab/jQuery.PrettyTextDiff/issues"
+  },
+  "homepage": "https://github.com/arnab/jQuery.PrettyTextDiff#readme",
+  "dependencies" : {
+    "jquery": ">=1.4"
+  }
+}
