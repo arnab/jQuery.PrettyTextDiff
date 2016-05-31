@@ -60,8 +60,8 @@ See https://github.com/arnab/jQuery.PrettyTextDiff/
                 $.fn.prettyTextDiff.debug("Original text found: ", original, settings);
                 $.fn.prettyTextDiff.debug("Changed  text found: ", changed, settings);
 
-                if (settings.mode == "WORD" || settings.mode == "LINE") {
-                    var a = settings.mode == "WORD" 
+                if (settings.mode === "WORD" || settings.mode === "LINE") {
+                    var a = settings.mode === "WORD" 
                         ? diff_charsToLines(original, changed)
                         : dmp.diff_linesToChars_(original, changed);
                     var lineText1 = a["chars1"];
