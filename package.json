@@ -21,7 +21,21 @@
     "url": "https://github.com/arnab/jQuery.PrettyTextDiff/issues"
   },
   "homepage": "https://github.com/arnab/jQuery.PrettyTextDiff#readme",
-  "dependencies" : {
+  "dependencies": {
     "jquery": ">=1.4"
+  },
+  "devDependencies": {
+    "coffeescript": "1.12.7",
+    "uglify-js": "3.19.3"
+  },
+  "files": [
+    "jquery.pretty-text-diff.js",
+    "jquery.pretty-text-diff.min.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "cake build",
+    "version": "node scripts/bump-coffee-version.js && cake build && git add -A"
   }
 }

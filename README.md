@@ -111,13 +111,13 @@ in the [jsfiddle demo](#demo).
 + Install [`node`](http://nodejs.org/) and `npm` (comes with node now)
 + Install [`coffeescript`](http://coffeescript.org/#installation) and
     [`uglify`](https://github.com/mishoo/UglifyJS2):
-    `npm install -g coffee-script uglify-js`
+  + `npm install -g coffee-script uglify-js`
 + `cake build` to produce the output JS (minified)
-+ Increment the version in the
-coffeescript (and compiled/minified) javascript source and the
-`package.json` file.
-+ `git tag x.y.z`
-+ Push: `git push && git push --tags && npm publish`
+
+## Versioning
++ Bump the version, build, and tag automatically: `npm version patch` (or `minor` / `major`)
+  + This updates `package.json`, syncs the version into the CoffeeScript source, rebuilds the compiled/minified JS, commits everything, and creates the git tag.
++ Push: `git push && git push --tags`
 
 ## Contributing
 + Fork this repo
