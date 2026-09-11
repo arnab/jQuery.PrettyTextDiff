@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Install CoffeeScript and UglifyJS
+        run: npm install -g coffee-script uglify-js
+
+      - name: Build (cake build)
+        run: cake build
+
+      - name: Verify no uncommitted changes in build output
+        if: github.event_name == 'pull_request'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Build produced uncommitted changes. Run 'cake build' locally and commit the result."
+            git status
+            exit 1
+          fi
+
+      - name: Commit build output
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Build generated files

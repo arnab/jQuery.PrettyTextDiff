@@ -1,0 +1,6 @@
+.github/       export-ignore
+scripts/       export-ignore
+.gitignore     export-ignore
+.gitattributes export-ignore
+Cakefile       export-ignore
+jquery.pretty-text-diff.coffee export-ignore

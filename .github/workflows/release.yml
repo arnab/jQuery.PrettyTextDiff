@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'   # triggers on tags like 1.2.3
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install CoffeeScript and UglifyJS
+        run: npm install -g coffee-script uglify-js
+
+      - name: Build (cake build)
+        run: cake build
+
+      - name: Verify versions
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          JS_VERSION=$(grep -oP '@preserve jQuery\.PrettyTextDiff \K[0-9]+\.[0-9]+\.[0-9]+' jquery.pretty-text-diff.min.js)
+
+          echo "Tag version: v$TAG_VERSION"
+          echo "package.json version: v$PKG_VERSION"
+          echo "jquery.pretty-text-diff.min.js version: v$JS_VERSION"
+
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ] || [ "$TAG_VERSION" != "$JS_VERSION" ]; then
+            echo "Version mismatch."
+            exit 1
+          fi
+
+      - name: Publish to npm
+        if: env.NODE_AUTH_TOKEN != ''
+        run: npm publish
