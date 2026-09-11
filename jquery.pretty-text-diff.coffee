@@ -1,14 +1,45 @@
 ###
-@preserve jQuery.PrettyTextDiff 1.0.4
+@preserve jQuery.PrettyTextDiff 1.0.5
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 ###
 
 $ = jQuery
 
+diff_wordsToChars = (text1, text2) ->
+  wordsToChars = (text) ->
+    chars = ""
+    wordStart = 0
+
+    while wordStart < text.length
+      wordEnd = text.indexOf(" ", wordStart)
+      wordEnd = text.length - 1 if wordEnd == -1
+
+      word = text.substring(wordStart, wordEnd + 1)
+      wordStart = wordEnd + 1
+
+      if wordHash.hasOwnProperty(word)
+        chars += String.fromCharCode(wordHash[word])
+      else
+        wordHash[word] = lineArray.length
+        lineArray.push(word)
+        chars += String.fromCharCode(lineArray.length - 1)
+
+    chars
+
+  lineArray = [""]
+  wordHash = {}
+
+  [
+    wordsToChars(text1)
+    wordsToChars(text2)
+    lineArray
+  ]
+
 $.fn.extend
   prettyTextDiff: (options) ->
       # Defaults
       settings =
+        mode: 'DEFAULT',
         originalContainer: ".original",
         changedContainer:  ".changed",
         diffContainer: ".diff",
@@ -29,9 +60,18 @@ $.fn.extend
         $.fn.prettyTextDiff.debug "Original text found: ", original, settings
         $.fn.prettyTextDiff.debug "Changed  text found: ", changed, settings
 
-        diffs = dmp.diff_main(original, changed)
+        if settings.mode == "WORD" or settings.mode == "LINE"
+          fragments = if settings.mode == "WORD"
+            diff_wordsToChars(original, changed)
+          else
+            dmp.diff_linesToChars(original, changed)
 
-        dmp.diff_cleanupSemantic(diffs) if settings.cleanup
+          diffs = dmp.diff_main fragments[0], fragments[1], false
+          dmp.diff_charsToLines diffs, fragments[2]
+        else
+          diffs = dmp.diff_main(original, changed)
+          dmp.diff_cleanupSemantic(diffs) if settings.cleanup
+
         $.fn.prettyTextDiff.debug "Diffs: ", diffs, settings
 
         diff_as_html = $.map(diffs, (diff) ->
