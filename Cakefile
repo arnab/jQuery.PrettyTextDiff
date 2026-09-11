@@ -8,7 +8,7 @@ task 'compile', 'Build project from *.coffee to *.js', ->
     console.log stdout + stderr
 
 task 'minify', 'Minify js into min.js', ->
-  exec "uglifyjs #{srcFile}.js --o #{srcFile}.min.js --comments", (err, stdout, stderr) ->
+  exec "uglifyjs #{srcFile}.js --output #{srcFile}.min.js --comments --compress --mangle", (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
 
