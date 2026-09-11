@@ -19,9 +19,9 @@ $.fn.extend
 
       dmp = new diff_match_patch();
       @each ->
-        if settings.originalContent and settings.changedContent
-          original = $('<div />').html(settings.originalContent).text()
-          changed = $('<div />').html(settings.changedContent).text()
+        if settings.originalContent or settings.changedContent
+          original = $('<i/>').text(settings.originalContent or '').text()
+          changed = $('<i/>').text(settings.changedContent or '').text()
         else
           original = $(settings.originalContainer, this).text()
           changed = $(settings.changedContainer, this).text()
