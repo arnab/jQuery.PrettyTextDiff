@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install CoffeeScript and UglifyJS
-        run: npm install -g coffee-script uglify-js
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build (cake build)
-        run: cake build
+        run: npm run build
 
       - name: Verify no uncommitted changes in build output
         if: github.event_name == 'pull_request'

@@ -3,4 +3,5 @@ scripts/       export-ignore
 .gitignore     export-ignore
 .gitattributes export-ignore
 Cakefile       export-ignore
+package-lock.json export-ignore
 jquery.pretty-text-diff.coffee export-ignore
