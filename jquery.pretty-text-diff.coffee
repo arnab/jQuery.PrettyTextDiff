@@ -20,9 +20,11 @@ $.fn.extend
       dmp = new diff_match_patch();
       @each ->
         if settings.originalContent and settings.changedContent
+          containers = false
           original = $('<div />').html(settings.originalContent).text()
           changed = $('<div />').html(settings.changedContent).text()
         else
+          containers = true
           original = $(settings.originalContainer, this).text()
           changed = $(settings.changedContainer, this).text()
 
@@ -35,8 +37,13 @@ $.fn.extend
         $.fn.prettyTextDiff.debug "Diffs: ", diffs, settings
 
         diff_as_html = $.map(diffs, (diff) ->
-          $.fn.prettyTextDiff.createHTML(diff))
-        $(settings.diffContainer, this).html(diff_as_html.join(''));
+          $.fn.prettyTextDiff.createHTML(diff)).join('')
+        if settings.diffContainer
+          $(settings.diffContainer, this).html(diff_as_html);
+        else
+          if containers
+            $(settings.originalContainer, this).html(diff_as_html).find('ins').remove();
+            $(settings.changedContainer, this).html(diff_as_html).find('del').remove();    
 
         @
 
