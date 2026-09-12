@@ -58,7 +58,7 @@ $.fn.prettyTextDiff.createHTML = (diff) ->
                .replace(pattern_gt, '&gt;') \
                .replace(pattern_tab, '    ') \
                .replace(pattern_space, '&nbsp;&nbsp;') \
-               .replace(pattern_para, '<br>')
+               .replace(pattern_para, '&nbsp;<br>')
     switch operation
       when DIFF_INSERT then '<ins>' + text + '</ins>'
       when DIFF_DELETE then '<del>' + text + '</del>'
