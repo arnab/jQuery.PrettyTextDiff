@@ -53,7 +53,7 @@ See https://github.com/arnab/jQuery.PrettyTextDiff/
       $.fn.prettyTextDiff.debug("Options: ", settings, settings);
       dmp = new diff_match_patch();
       return this.each(function() {
-        var changed, diff_as_html, diffs, fragments, original;
+        var changed, diff_as_html, diffs, fragments, mode, original;
         if (settings.originalContent && settings.changedContent) {
           original = $('<div />').html(settings.originalContent).text();
           changed = $('<div />').html(settings.changedContent).text();
@@ -63,8 +63,9 @@ See https://github.com/arnab/jQuery.PrettyTextDiff/
         }
         $.fn.prettyTextDiff.debug("Original text found: ", original, settings);
         $.fn.prettyTextDiff.debug("Changed  text found: ", changed, settings);
-        if (settings.mode === "WORD" || settings.mode === "LINE") {
-          fragments = settings.mode === "WORD" ? diff_wordsToChars(original, changed) : dmp.diff_linesToChars(original, changed);
+        mode = $(this).attr('mode') || settings.mode;
+        if (["WORD", "LINE"].includes(mode)) {
+          fragments = mode === "WORD" ? diff_wordsToChars(original, changed) : dmp.diff_linesToChars(original, changed);
           diffs = dmp.diff_main(fragments[0], fragments[1], false);
           dmp.diff_charsToLines(diffs, fragments[2]);
         } else {

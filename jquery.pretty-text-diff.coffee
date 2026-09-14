@@ -60,8 +60,9 @@ $.fn.extend
         $.fn.prettyTextDiff.debug "Original text found: ", original, settings
         $.fn.prettyTextDiff.debug "Changed  text found: ", changed, settings
 
-        if settings.mode == "WORD" or settings.mode == "LINE"
-          fragments = if settings.mode == "WORD"
+        mode = $(this).attr('mode') or settings.mode
+        if ["WORD", "LINE"].includes(mode)
+          fragments = if mode == "WORD"
             diff_wordsToChars(original, changed)
           else
             dmp.diff_linesToChars(original, changed)
