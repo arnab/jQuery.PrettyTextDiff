@@ -65,10 +65,9 @@ $.fn.extend
           fragments = if mode == "WORD"
             diff_wordsToChars(original, changed)
           else
-            dmp.diff_linesToChars(original, changed)
-
+            Object.values(dmp.diff_linesToChars_(original, changed))
           diffs = dmp.diff_main fragments[0], fragments[1], false
-          dmp.diff_charsToLines diffs, fragments[2]
+          dmp.diff_charsToLines_(diffs, fragments[2])
         else
           diffs = dmp.diff_main(original, changed)
           dmp.diff_cleanupSemantic(diffs) if settings.cleanup
