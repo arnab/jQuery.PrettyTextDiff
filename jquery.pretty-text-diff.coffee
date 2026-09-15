@@ -23,8 +23,8 @@ $.fn.extend
           original = $('<div />').html(settings.originalContent).text()
           changed = $('<div />').html(settings.changedContent).text()
         else
-          original = $(settings.originalContainer, this).text()
-          changed = $(settings.changedContainer, this).text()
+          original = $(settings.originalContainer, this).clone().find('br').replaceWith('\n').end().text();
+          changed = $(settings.changedContainer, this).clone().find('br').replaceWith('\n').end().text();
 
         $.fn.prettyTextDiff.debug "Original text found: ", original, settings
         $.fn.prettyTextDiff.debug "Changed  text found: ", changed, settings
